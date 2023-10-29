@@ -5,7 +5,7 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Dashboard::index');
 
 $routes->get('dashboard', 'Dashboard::index');
 
@@ -93,4 +93,11 @@ $routes->group('laporan', static function ($router) {
     $router->get('neraca', 'Laporan::neraca');
     $router->get('perubahanmodal', 'Laporan::perubahanmodal');
     $router->get('labarugi', 'Laporan::labarugi');
+});
+
+
+$routes->group('profile', static function ($router) {
+    $router->get('/', 'Profile::index');
+    $router->get('gantipassword', 'Profile::gantipassword');
+    $router->post('gantipassword', 'Profile::doGantiPassword');
 });

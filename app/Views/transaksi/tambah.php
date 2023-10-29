@@ -36,6 +36,10 @@
 
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1">Jenis Transaksi</label>
+                                <!-- <select required class="form-control" name="jenis_transaksi" id="">
+                                    <option value="">Masukan Jenis Transaksi</option>
+                                    <option value=""></option>
+                                </select> -->
                                 <input required name="jenis_transaksi" class="form-control" type="text" placeholder="Masukan Jenis Transaksi" />
                             </div>
 

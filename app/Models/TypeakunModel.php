@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class AkunModel extends Model {
+class TypeakunModel extends Model {
     protected $DBGroup          = 'default';
-    protected $table            = 'akun_keuangan';
+    protected $table            = 'type_akun';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ["id", "no_akun", "nama_akun", "type_akun", "saldo_normal", "jenis_akun"];
+    protected $allowedFields    = [];
 
     // Dates
     protected $useTimestamps = false;

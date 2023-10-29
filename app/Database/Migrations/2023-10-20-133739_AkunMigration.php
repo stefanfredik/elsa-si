@@ -27,7 +27,14 @@ class AkunMigration extends Migration {
                 'constraint'    => '64'
             ],
             'saldo_normal' => [
-                'type'       => 'INT',
+                'type'  => 'INT',
+                'null'  => true
+            ],
+
+            'jenis_akun' => [
+                'type'       => 'ENUM',
+                'constraint' => ['Debit', 'Kredit'],
+                'default'    => 'Debit',
             ],
         ];
 

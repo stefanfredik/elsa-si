@@ -14,18 +14,40 @@
                                 <label for="exampleFormControlInput1">No Akun</label>
                                 <input required name="no_akun" class="form-control" type="text" placeholder="Masukan Nomor Akun" />
                             </div>
+                            
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1">Nama Akun</label>
                                 <input required name="nama_akun" class="form-control" type="text" placeholder="Masukan Nama Akun" />
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1">Type Akun</label>
-                                <input required name="type_akun" class="form-control" type="text" placeholder="Masukan Type Akun" />
+                                <select class="form-control" name="type_akun" id="">
+                                    <option value="">Pilih Type Akun</option>
+                                    <?php foreach ($typeAkun as $dt) :  ?>
+                                        <option value="<?= $dt["type_akun"] ?>"><?= $dt["type_akun"] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1">Jenis Akun</label>
+                                <div class="form-check">
+                                    <input value="Debit" class="form-check-input" type="radio" name="jenis_akun" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Debit
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input value="Kredit" class="form-check-input" type="radio" name="jenis_akun" id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        Kredit
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1">Saldo Normal</label>
-                                <input required name="saldo_normal" class="form-control" type="text" placeholder="Masukan Nomor Akun" />
+                                <input required name="saldo_normal" class="form-control fs-2" type="number" placeholder="Masukan Jumlah Saldo" />
                             </div>
 
                             <input type="submit" value="Simpan" class="btn btn-primary">

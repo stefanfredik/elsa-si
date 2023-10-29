@@ -24,6 +24,22 @@
                             </div>
 
                             <div class="mb-3">
+                                <label for="exampleFormControlInput1">Jenis Akun</label>
+                                <div class="form-check">
+                                    <input value="Debit" class="form-check-input" type="radio" name="jenis_akun" id="flexRadioDefault1" <?= $akun["jenis_akun"] == "Kredit" ? "checked" : "" ?>>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Debit
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input value="Kredit" class="form-check-input" type="radio" name="jenis_akun" id="flexRadioDefault2" <?= $akun["jenis_akun"] == "Kredit" ? "checked" : "" ?>>
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        Kredit
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
                                 <label for="exampleFormControlInput1">Saldo Normal</label>
                                 <input required name="saldo_normal" class="form-control" type="text" placeholder="Saldo Akun" value="<?= $akun["saldo_normal"] ?>" />
                             </div>

@@ -25,6 +25,7 @@
                             <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Nama Akun</th>
                             <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Type Akun</th>
                             <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Saldo Normal</th>
+                            <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Jenis Akun</th>
                             <th width="150px" class="opacity-7">Action</th>
                         </tr>
                     </thead>
@@ -37,7 +38,8 @@
                                 <td><?= $dt["no_akun"] ?></td>
                                 <td><?= $dt["nama_akun"] ?></td>
                                 <td><?= $dt["type_akun"] ?></td>
-                                <td><?= $dt["saldo_normal"] ?></td>
+                                <td><?= rupiah($dt["saldo_normal"]) ?></td>
+                                <td><?= $dt["jenis_akun"] ?></td>
                                 <?= view_cell('\App\Libraries\Widget::tombolAksi', [
                                     'url'       => $meta['url'],
                                     'id'        => $dt['id'],

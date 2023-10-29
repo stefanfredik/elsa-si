@@ -3,9 +3,9 @@
 namespace Config;
 
 use CodeIgniter\Config\BaseConfig;
-use Myth\Auth\Config\Auth;
+use Myth\Auth\Config\Auth as AuthConfig;
 
-class AuthConfig extends Auth {
+class AuthConf extends  AuthConfig {
     public $requireActivation = null;
     public $allowRegistration = false;
 

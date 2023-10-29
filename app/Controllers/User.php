@@ -69,6 +69,7 @@ class User extends BaseController {
         } else {
 
             $data['password_hash'] = Password::hash($this->request->getPost('password'));
+            $data['active']    = 1;
 
             $this->userModel->withGroup($data["jabatan"])->save($data);
 

@@ -35,7 +35,11 @@ class Transaksi extends BaseController {
             "title" => "Tambah Data transaksi Baru",
             "meta"  => $this->meta,
             "dataAkun" => $this->akunModel->findAll(),
+            "id"    => $this->akunModel->insertId() + 1,
         ];
+
+
+        // dd($data);
 
 
         return view("/transaksi/tambah", $data);

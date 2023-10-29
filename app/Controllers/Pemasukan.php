@@ -37,13 +37,25 @@ class Pemasukan extends BaseController {
             "meta"  => $this->meta,
             "dataTamu" => $this->tamuModel->findAll(),
         ];
-
-
         return view("/pemasukan/tambah", $data);
     }
 
     public function store() {
         $data = $this->request->getPost();
+
+        $idTamuBaru = "";
+
+        if ($data["jenis_tamu"] == "tamuBaru") {
+            $tamu = [
+                "nama_tamu" => $this->request->getPost("nama_tamu"),
+                "alamat_tamu" => $this->request->getPost("alamat_tamu"),
+                "telepon_tamu" => $this->request->getPost("telepon_tamu"),
+            ];
+
+            $this->tamuModel->save($tamu);
+            $idTamuBaru = $this->tamuModel->insertID();
+            $data["id_tamu"] = $idTamuBaru;
+        }
 
         $this->pemasukanModel->save($data);
 

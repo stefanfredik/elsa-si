@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\AkunModel;
+use App\Models\TypeakunModel;
 
 class Akun extends BaseController {
     var $meta = [
@@ -16,6 +17,7 @@ class Akun extends BaseController {
 
     public function __construct() {
         $this->akunModel = new AkunModel();
+        $this->typeAkunModel = new TypeakunModel();
     }
 
     public function index() {
@@ -31,7 +33,8 @@ class Akun extends BaseController {
     public function tambah() {
         $data = [
             "title" => "Tambah Akun Baru",
-            "meta"  => $this->meta
+            "meta"  => $this->meta,
+            "typeAkun"  => $this->typeAkunModel->findAll(),
         ];
 
 
@@ -52,7 +55,7 @@ class Akun extends BaseController {
         $this->akunModel->delete($id);
 
         setSwall("Sukses Menghapus Data.");
-        return redirect()->to('/user');
+        return redirect()->to($this->meta["url"]);
     }
 
     public function edit($id) {
