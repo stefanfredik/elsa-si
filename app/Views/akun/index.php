@@ -13,20 +13,24 @@
     </div>
 
     <a href="<?= $meta["url"] . "/tambah" ?>" class="btn btn-primary my-3"><i class="bi bi-plus-lg "></i></a>
+
     <div class="card mb-4">
-        <div class="card-header">Table User</div>
+        <div class="card-header">Table <?= $title ?></div>
         <div id="data" class="card-body">
             <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0 border rounded">
-                    <thead>
+                    <thead class="align-middle text-center">
                         <tr>
-                            <th class="text-uppercase  text-xxs font-weight-bolder opacity-7">No</th>
-                            <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">No. Akun</th>
-                            <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Nama Akun</th>
-                            <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Type Akun</th>
-                            <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Saldo Normal</th>
-                            <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Jenis Akun</th>
-                            <th width="150px" class="opacity-7">Action</th>
+                            <th class="text-uppercase  text-xxs font-weight-bolder opacity-7" rowspan="2">No</th>
+                            <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2" rowspan="2">No. Akun</th>
+                            <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2" rowspan="2">Nama Akun</th>
+                            <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2" rowspan="2">Type Akun</th>
+                            <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2" colspan="2">Saldo Normal</th>
+                            <th width="150px" class="opacity-7" rowspan="2">Action</th>
+                        </tr>
+                        <tr>
+                            <th>Debit</th>
+                            <th>Kredit</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,8 +42,8 @@
                                 <td><?= $dt["no_akun"] ?></td>
                                 <td><?= $dt["nama_akun"] ?></td>
                                 <td><?= $dt["type_akun"] ?></td>
-                                <td><?= rupiah($dt["saldo_normal"]) ?></td>
-                                <td><?= $dt["jenis_akun"] ?></td>
+                                <td><?= $dt["jenis_akun"] == "Debit" ?  rupiah($dt["saldo_normal"]) : "" ?></td>
+                                <td><?= $dt["jenis_akun"] == "Kredit" ?  rupiah($dt["saldo_normal"]) : "" ?></td>
                                 <?= view_cell('\App\Libraries\Widget::tombolAksi', [
                                     'url'       => $meta['url'],
                                     'id'        => $dt['id'],
