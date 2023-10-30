@@ -24,8 +24,12 @@ class Akun extends BaseController {
         $data = [
             "title" => "Data Akun",
             "dataAkun" => $this->akunModel->findAll(),
-            "meta"     => $this->meta
+            "meta"     => $this->meta,
+            "totalKredit"   => $this->akunModel->getTotalKredit(),
+            "totalDebit"   => $this->akunModel->getTotalDebit(),
         ];
+
+        // dd($data);
 
         return view("/akun/index", $data);
     }

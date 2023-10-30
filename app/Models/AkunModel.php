@@ -37,4 +37,13 @@ class AkunModel extends Model {
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+
+    public function getTotalKredit() {
+        return $this->selectSum("saldo_normal")->where("jenis_akun", "Kredit")->first();
+    }
+
+    public function getTotalDebit() {
+        return $this->selectSum("saldo_normal")->where("jenis_akun", "Debit")->first();
+    }
 }

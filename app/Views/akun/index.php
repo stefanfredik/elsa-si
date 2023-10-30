@@ -53,6 +53,27 @@
                         <?php endforeach; ?>
                     </tbody>
                 </table>
+
+
+                <div class="border p-3 rounded mb-4">
+                    <div class="row">
+                        <div class="col-lg-4 fw-bold">
+                            Total Debit
+                        </div>
+                        <div class="col-lg-8">
+                            <?= rupiah($totalDebit["saldo_normal"]) ?>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 fw-bold">
+                            Total Kredit
+                        </div>
+                        <div class="col-lg-8 text-right">
+                            <?= rupiah($totalKredit["saldo_normal"]) ?>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

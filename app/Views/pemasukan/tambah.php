@@ -51,9 +51,6 @@
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>
-                                            <div class="col">
-                                                <button onclick="tamuBaru()" class="btn btn-primary">Tamu Baru</button>
-                                            </div>
                                         </div>
 
 
@@ -177,4 +174,11 @@
         }
     });
 </script>
-<?= $this->endSection() ?>
+
+<script>
+    $('select').select2({
+        theme: 'bootstrap-5'
+    });
+</script>
+
+<?= $this->endSection(); ?>

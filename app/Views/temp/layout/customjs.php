@@ -3,6 +3,13 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/js/selectize.min.js" integrity="sha512-IOebNkvA/HZjMM7MxL0NYeLYEalloZ8ckak+NDtOViP7oiYzG5vn6WVXyrJDiJPhl4yRdmNAG49iuLmhkUdVsQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+
+
+<!-- Scripts -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.slim.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 <script>
     function confirmDelete(url) {
         Swal.fire({
@@ -42,9 +49,13 @@
             info: "Kolom _START_ sampai _END_ dari _TOTAL_ kolom"
         }
     }
+
     $(document).ready(function() {
-        $('table').DataTable(config);
+        if ($('table').length > 0) {
+            $('table').DataTable(config);
+        }
     });
+
     const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
@@ -77,28 +88,3 @@
         confirmButtonText: 'Hapus'
     });
 </script>
-
-<!-- 
-<script>
-    let dengan_rupiah = document.getElementsByClassName('rupiah');
-
-    dengan_rupiah.addEventListener('keyup', function(e) {
-        dengan_rupiah.value = formatRupiah(this.value, 'Rp. ');
-    });
-
-    function formatRupiah(angka, prefix) {
-        var number_string = angka.replace(/[^,\d]/g, '').toString(),
-            split = number_string.split(','),
-            sisa = split[0].length % 3,
-            rupiah = split[0].substr(0, sisa),
-            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-        if (ribuan) {
-            separator = sisa ? '.' : '';
-            rupiah += separator + ribuan.join('.');
-        }
-
-        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-    }
-</script> -->

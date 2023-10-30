@@ -14,7 +14,7 @@
                                 <label for="exampleFormControlInput1">No Akun</label>
                                 <input required name="no_akun" class="form-control" type="text" placeholder="Masukan Nomor Akun" />
                             </div>
-                            
+
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1">Nama Akun</label>
                                 <input required name="nama_akun" class="form-control" type="text" placeholder="Masukan Nama Akun" />
