@@ -36,7 +36,7 @@
                             <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Room</th>
                             <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Booking</th>
                             <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Diskon</th>
-                            <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Jumlah</th>
+                            <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Total</th>
                             <th width="150px" class="opacity-7">Action</th>
                         </tr>
                     </thead>

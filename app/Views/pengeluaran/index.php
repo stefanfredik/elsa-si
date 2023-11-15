@@ -31,8 +31,7 @@
                             <th class="text-uppercase  text-xxs font-weight-bolder opacity-7">No</th>
                             <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Tanggal Transaksi</th>
                             <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Keterangan</th>
-                            <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Jumlah</th>
-                            <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Saldo</th>
+                            <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Total</th>
                             <th width="150px" class="opacity-7">Action</th>
                         </tr>
                     </thead>
@@ -44,8 +43,7 @@
                                 <td><?= $no++ ?></td>
                                 <td><?= $dt["tanggal_transaksi"] ?></td>
                                 <td><?= $dt["keterangan"] ?></td>
-                                <td><?= $dt["jumlah"] ?></td>
-                                <td><?= $dt["saldo"] ?></td>
+                                <td><?= rupiah($dt["total"]) ?></td>
 
                                 <?= view_cell('\App\Libraries\Widget::tombolAksi', [
                                     'url'       => $meta['url'],

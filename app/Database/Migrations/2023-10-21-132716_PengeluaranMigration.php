@@ -20,11 +20,8 @@ class PengeluaranMigration extends Migration {
                 'type'  => 'VARCHAR',
                 'constraint' => 64
             ],
-            'jumlah' => [
-                'type'  => 'INT',
-            ],
-            'saldo' => [
-                'type'  => 'INT',
+            'total' => [
+                'type'  => 'FLOAT',
             ],
 
         ];

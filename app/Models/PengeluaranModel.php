@@ -12,7 +12,7 @@ class PengeluaranModel extends Model {
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ["id", "tanggal_transaksi", "keterangan", "jumlah", "saldo"];
+    protected $allowedFields    = ["id", "tanggal_transaksi", "keterangan", "total"];
 
     // Dates
     protected $useTimestamps = false;

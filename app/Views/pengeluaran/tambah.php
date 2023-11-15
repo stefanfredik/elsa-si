@@ -12,7 +12,7 @@
                             <?= form_open("/" . $meta["url"]) ?>
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1">Tanggal Transaksi</label>
-                                <input required name="tanggal_transaksi" class="form-control" type="date" placeholder="Masukan Tanggal Transaksi" />
+                                <input value="<?php echo date('Y-m-d'); ?>" required name="tanggal_transaksi" class="form-control" type="date" placeholder="Masukan Tanggal Transaksi" />
                             </div>
 
                             <div class="mb-3">
@@ -21,12 +21,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1">Jumlah</label>
-                                <input required name="jumlah" class="form-control" type="number" placeholder="Masukan Jumlah Saldo" />
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1">Saldo</label>
-                                <input required name="saldo" class="form-control" type="number" placeholder="Masukan Jumlah Saldo" />
+                                <input required name="total" class="form-control" type="number" placeholder="Masukan Jumlah Total" />
                             </div>
                             <input type="submit" value="Simpan" class="btn btn-primary">
                             <a href="/<?= $meta["url"] ?>" class="btn btn-secondary">Batal</a>

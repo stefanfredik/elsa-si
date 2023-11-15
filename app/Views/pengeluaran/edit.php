@@ -20,14 +20,10 @@
                                 <input required name="keterangan" class="form-control" type="text" placeholder="Keterangan" value="<?= $pengeluaran["keterangan"] ?>" />
                             </div>
                             <div class="mb-3">
-                                <label for="exampleFormControlInput1">Jumlah</label>
-                                <input required name="jumlah" class="form-control" type="number" placeholder="Masukan Jumlah" value="<?= $pengeluaran["jumlah"] ?>" />
+                                <label for="exampleFormControlInput1">Total</label>
+                                <input required name="total" class="form-control" type="number" placeholder="Masukan Jumlah" value="<?= $pengeluaran["total"] ?>" />
                             </div>
 
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1">Saldo</label>
-                                <input required name="saldo" class="form-control" type="number" placeholder="Masukan Saldo" value="<?= $pengeluaran["saldo"] ?>" />
-                            </div>
                             <input type="submit" value="Simpan" class="btn btn-primary">
                             <a href="/<?= $meta["url"] ?>" class="btn btn-secondary">Batal</a>
                             <?= form_close() ?>
