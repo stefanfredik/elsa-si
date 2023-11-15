@@ -28,7 +28,6 @@
                 <table class="table align-items-center mb-0 border rounded">
                     <thead>
                         <tr>
-                            <th class="text-uppercase  text-xxs font-weight-bolder opacity-7">No</th>
                             <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">ID Transaksi</th>
                             <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Tanggal Transaksi</th>
                             <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Keterangan</th>
@@ -41,7 +40,6 @@
 
                         foreach ($dataPengeluaran as $dt) : ?>
                             <tr>
-                                <td><?= $no++ ?></td>
                                 <td><?= "O-" . str_pad($dt["id"], 3, '0', STR_PAD_LEFT) ?></td>
                                 <td><?= $dt["tanggal_transaksi"] ?></td>
                                 <td><?= $dt["keterangan"] ?></td>
