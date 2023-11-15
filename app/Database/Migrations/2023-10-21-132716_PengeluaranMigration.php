@@ -12,6 +12,11 @@ class PengeluaranMigration extends Migration {
                 'auto_increment'    => TRUE
             ],
 
+            'id_transaksi' => [
+                'type'  => 'VARCHAR',
+                'constraint' => 64
+            ],
+
             'tanggal_transaksi' => [
                 'type'  => 'DATE',
             ],

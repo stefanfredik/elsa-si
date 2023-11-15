@@ -11,8 +11,8 @@
                         <div class="sbp-preview-content">
                             <?= form_open("/" . $meta["url"]) ?>
                             <div class="mb-3">
-                                <label for="exampleFormControlInput1">Nomor Transaksi</label>
-                                <input value="<?php echo date('Y-m-d'); ?>" required name="nomor_transaksi" class="form-control" type="text" placeholder="Masukan Nomor Transaksi" />
+                                <label for="exampleFormControlInput1">Tanggal Transaksi</label>
+                                <input value="<?= $idTransaksi ?>" required name="id_transaksi" class="form-control" type="text" placeholder="Masukan ID Transaksi" />
                             </div>
 
                             <div class="mb-3">

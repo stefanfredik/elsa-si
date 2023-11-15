@@ -7,9 +7,14 @@ use CodeIgniter\Database\Migration;
 class PemasukanMigration extends Migration {
     public function up() {
         $data = [
-            'id' => [
-                'type'  => 'INT',
-                'auto_increment'    => TRUE
+            'id'    => [
+                "type" => "INT",
+                "auto_increment" => true
+            ],
+
+            'id_transaksi' => [
+                'type'  => 'VARCHAR',
+                'constraint' => 64
             ],
 
             'tanggal_transaksi' => [

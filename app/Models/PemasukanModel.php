@@ -12,7 +12,7 @@ class PemasukanModel extends Model {
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ["id", "tanggal_transaksi", "id_tamu", "check_in", "check_out", "room", "booking", "diskon", "jumlah",];
+    protected $allowedFields    = ["id", "id_transaksi", "tanggal_transaksi", "id_tamu", "check_in", "check_out", "room", "booking", "diskon", "jumlah",];
 
     // Dates
     protected $useTimestamps = false;

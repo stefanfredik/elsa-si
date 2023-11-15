@@ -38,13 +38,17 @@ class Pemasukan extends BaseController {
     }
 
     public function tambah() {
+        $lastId = $this->pemasukanModel->select("id")->orderBy("id", "DESC")->first()["id"] + 1;
+
         $data = [
             "title" => "Tambah Data pemasukan Baru",
             "meta"  => $this->meta,
             "dataTamu" => $this->tamuModel->findAll(),
             "dataRoom"  => $this->roomModel->findAll(),
             "dataBooking" => $this->bookingModel->findAll(),
-            "dataBookingJson" => json_encode($this->bookingModel->findAll())
+            "dataBookingJson" => json_encode($this->bookingModel->findAll()),
+            // "idTransaksi"    =>  "I-" . str_pad(($this->pemasukanModel->getInsertID() + 1), 3, '0', STR_PAD_LEFT),
+            "idTransaksi"    =>  "I-" . str_pad($lastId, 3, '0', STR_PAD_LEFT),
         ];
         return view("/pemasukan/tambah", $data);
     }
@@ -54,18 +58,14 @@ class Pemasukan extends BaseController {
 
         $diskon = $data["diskon"];
         $idKamar = $data["room"];
-
         $hargaKamar = $this->roomModel->select("harga_kamar")->first($idKamar)["harga_kamar"];
         // dd($hargaKamar); s
-
         $durasi = $this->hitungDurasi($data["check_in"], $data["check_out"]);
 
         // dd($durasi);
         $total = $this->hitungTotal($diskon, $hargaKamar, $durasi);
         // dd($total);
-
         $data["jumlah"] = $total;
-        $data["id_transaksi"] = $this->pemasukanModel->insertId();
 
 
         $this->pemasukanModel->save($data);

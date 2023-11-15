@@ -31,10 +31,13 @@ class Pengeluaran extends BaseController {
     }
 
     public function tambah() {
+        $lastId = ($this->pengeluaranModel->select("id")->orderBy("id", "DESC")->first() != null) ? ($this->pengeluaranModel->select("id")->orderBy("id", "DESC")->first()["id"])  + 1  : 1;
+
         $data = [
             "title" => "Tambah Data pengeluaran Baru",
             "meta"  => $this->meta,
             "dataAkun" => $this->akunModel->findAll(),
+            "idTransaksi"    =>  "O-" . str_pad($lastId, 3, '0', STR_PAD_LEFT),
         ];
 
 

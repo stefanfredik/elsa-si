@@ -13,6 +13,17 @@
                             <div class="mb-3">
                                 <div class="row mb-5">
                                     <div class="col-lg-4">
+                                        <label for="exampleFormControlInput1">ID Transaksi</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input required name="id_transaksi" class="form-control" type="text" placeholder="Masukan ID Transaksi" value="<?= $idTransaksi ?>" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="row mb-5">
+                                    <div class="col-lg-4">
                                         <label for="exampleFormControlInput1">Tanggal Transaksi</label>
                                     </div>
                                     <div class="col-lg-8">
