@@ -33,12 +33,12 @@ class PemasukanMigration extends Migration {
                 'type'  => 'VARCHAR',
                 'constraint' => 64
             ],
-            'harga' => [
-                'type'  => 'INT',
+            'diskon' => [
+                'type'  => 'FLOAT',
             ],
-            'saldo' => [
-                'type'  => 'INT',
-            ]
+            'jumlah' => [
+                'type'  => 'FLOAT',
+            ],
 
         ];
 

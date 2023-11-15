@@ -68,6 +68,7 @@ $routes->group('pemasukan', static function ($router) {
     $router->get('/', 'Pemasukan::index');
     $router->get('filter', 'Pemasukan::filter');
     $router->get('tambah', 'Pemasukan::tambah');
+    $router->get('findRoom/(:num)', 'Pemasukan::findRoom/$1');
     $router->get('edit/(:num)', 'Pemasukan::edit/$1');
     $router->get('delete/(:num)', 'Pemasukan::delete/$1');
 
@@ -101,3 +102,6 @@ $routes->group('profile', static function ($router) {
     $router->get('gantipassword', 'Profile::gantipassword');
     $router->post('gantipassword', 'Profile::doGantiPassword');
 });
+
+
+$routes->get("login", "Auth::login");

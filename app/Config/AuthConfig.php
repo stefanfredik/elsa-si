@@ -1,14 +1,14 @@
 <?php
 
 namespace Config;
+// namespace Myth\Auth\Config;
 
 use CodeIgniter\Config\BaseConfig;
-use Myth\Auth\Config\Auth as AuthConfig;
+// use Myth\Auth\Config\Auth;
 
-class AuthConf extends  AuthConfig {
+class AuthConfig extends BaseConfig {
     public $requireActivation = null;
     public $allowRegistration = false;
-
     public $validFields = ['username'];
 
     public $views = [

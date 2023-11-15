@@ -35,8 +35,8 @@
                             <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Check Out</th>
                             <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Room</th>
                             <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Booking</th>
-                            <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Harga</th>
-                            <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Saldo</th>
+                            <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Diskon</th>
+                            <th class="text-uppercase  text-xxs font-weight-bolder opacity-7 ps-2">Jumlah</th>
                             <th width="150px" class="opacity-7">Action</th>
                         </tr>
                     </thead>
@@ -50,10 +50,10 @@
                                 <td><?= $dt["nama_tamu"] ?></td>
                                 <td><?= $dt["check_in"] ?></td>
                                 <td><?= $dt["check_out"] ?></td>
-                                <td><?= $dt["room"] ?></td>
-                                <td><?= $dt["booking"] ?></td>
-                                <td><?= $dt["harga"] ?></td>
-                                <td><?= $dt["saldo"] ?></td>
+                                <td><?= $dt["jenis_kamar"] ?></td>
+                                <td><?= $dt["nama_booking"] ?></td>
+                                <td><?= $dt["diskon"] . "%" ?> </td>
+                                <td><?= rupiah($dt["jumlah"]); ?></td>
 
                                 <?= view_cell('\App\Libraries\Widget::tombolAksi', [
                                     'url'       => $meta['url'],

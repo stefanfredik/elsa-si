@@ -88,3 +88,13 @@
         confirmButtonText: 'Hapus'
     });
 </script>
+
+
+<script>
+    function rupiah(angka) {
+        angka = String(angka);
+        angka = angka.replace(/[^,\d]/g, '');
+        angka = angka.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        return 'Rp. ' + angka;
+    }
+</script>

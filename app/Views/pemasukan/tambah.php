@@ -16,7 +16,7 @@
                                         <label for="exampleFormControlInput1">Tanggal Transaksi</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input required name="tanggal_transaksi" class="form-control" type="date" placeholder="Masukan Tanggal Transaksi" <input type="date" value="<?php echo date('Y-m-d'); ?>" />
+                                        <input required name="tanggal_transaksi" class="form-control" type="date" placeholder="Masukan Tanggal Transaksi" value="<?php echo date('Y-m-d'); ?>" />
                                     </div>
                                 </div>
                             </div>
@@ -28,24 +28,9 @@
                                     </div>
 
                                     <div class="col-lg-8">
-                                        <div class="d-flex gap-5 mb-3">
-                                            <div class="">
-                                                <input value="tamuLama" class="form-check-input" type="radio" name="jenis_tamu" id="tamuLama">
-                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                    Pilih Tamu
-                                                </label>
-                                            </div>
-                                            <div class="">
-                                                <input value="tamuBaru" class="form-check-input" type="radio" name="jenis_tamu" id="tamuBaru" checked>
-                                                <label class="form-check-label" for="flexRadioDefault2">
-                                                    Tamu Baru
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <div id="tamuLamaSelect" style="display: none;" class="row mb-5">
+                                        <div id="tamuLamaSelect" class="row mb-5">
                                             <div>Pilih Tamu</div>
-                                            <div class="col"><select name="id_tamu" class="form-control">
+                                            <div class="col"><select name="id_tamu" class="select form-control">
                                                     <?php foreach ($dataTamu as $dt) : ?>
                                                         <option value="<?= $dt["id"] ?>"><?= $dt["nama_tamu"] ?></option>
                                                     <?php endforeach; ?>
@@ -53,20 +38,8 @@
                                             </div>
                                         </div>
 
-
-                                        <div style="display: none;" id="tamuBaruSelect" class="border p-3 rounded">
-                                            <div class="mb-3">
-                                                <label for="exampleFormControlInput1">Nama Tamu</label>
-                                                <input required name="nama_tamu" class="form-control" type="text" placeholder="Masukan Nama Tamu" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="exampleFormControlInput1">Alamat Tamu</label>
-                                                <input required name="alamat_tamu" class="form-control" type="text" placeholder="Masukan Alamat Tamu" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="exampleFormControlInput1">Telepon</label>
-                                                <input required name="telepon_tamu" class="form-control" type="text" placeholder="Masukan Nomor Telepon" />
-                                            </div>
+                                        <div class="">
+                                            <a href="/tamu/tambah" class="btn btn-primary">Tamu Baru</a>
                                         </div>
                                     </div>
                                 </div>
@@ -80,7 +53,7 @@
                                         <label for="exampleFormControlInput1">Check In</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input required name="check_in" class="form-control" type="date" placeholder="Masukan Waktu Check In" />
+                                        <input value="<?= date('Y-m-d') ?>" id="tanggalCheckin" required name="check_in" class="form-control" type="date" placeholder="Masukan Waktu Check In" />
                                     </div>
                                 </div>
                             </div>
@@ -92,10 +65,9 @@
                                         <label for="exampleFormControlInput1">Check out</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input required name="check_out" class="form-control" type="date" placeholder="Masukan Waktu Check Out" />
+                                        <input value="<?= date('Y-m-d') ?>" id="tanggalCheckout" required name="check_out" class="form-control" type="date" placeholder="Masukan Waktu Check Out" />
                                     </div>
                                 </div>
-
                             </div>
 
                             <div class="mb-3">
@@ -104,7 +76,12 @@
                                         <label for="exampleFormControlInput1">Room</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input required name="room" class="form-control" type="text" placeholder="Masukan Room" />
+                                        <select name="room" class="form-control" id="room-select" required>
+                                            <option value="">Pilih Room</option>
+                                            <?php foreach ($dataRoom as $dt) :  ?>
+                                                <option value="<?= $dt["id"] ?>"><?= $dt["jenis_kamar"] ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -115,19 +92,11 @@
                                         <label for="exampleFormControlInput1">Booking</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input required name="booking" class="form-control" type="text" placeholder="Masukan Booking" />
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="mb-3">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <label for="exampleFormControlInput1">Harga</label>
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <input required name="harga" class="form-control" type="text" placeholder="Masukan Harga" />
+                                        <select name="booking" id="" class="form-control">
+                                            <?php foreach ($dataBooking as $dt) :  ?>
+                                                <option value="<?= $dt["id"] ?>"><?= $dt["nama_booking"] ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -135,12 +104,58 @@
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col-lg-4">
-                                        <label for="exampleFormControlInput1">Saldo</label>
+                                        <label for="exampleFormControlInput1">Diskon</label>
                                     </div>
-                                    <div class="col-lg-8">
-                                        <input required name="saldo" class="form-control" type="number" placeholder="Masukan Saldo" />
+                                    <div class="col-lg-2">
+                                        <div class="input-group mb-3">
+                                            <input name="diskon" id="inputDiskon" type="text" class="form-control" aria-label="Diskon">
+                                            <span class="input-group-text">%</span>
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="border rounded p-2 my-2 bg-gray-100">
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <label for="exampleFormControlInput1">Harga Kamar</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="fs-3" id="label-harga"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <label for="exampleFormControlInput1">Diskon</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="fs-3" id="labelDiskon"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <div class="row">
+
+                                        <div class="col-lg-4">
+                                            <label for="exampleFormControlInput1">Total</label>
+                                        </div>
+
+                                        <div class="col-lg-8">
+                                            <div>
+                                                <div class="fs-3" id="labelTotal"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
 
 
                             </div>
@@ -176,9 +191,75 @@
 </script>
 
 <script>
-    $('select').select2({
+    $('.select').select2({
         theme: 'bootstrap-5'
     });
+</script>
+
+
+<script>
+    let diskon = 0;
+    let hargaKamar = 0;
+    let total = 0;
+    let durasiBooking = 0;
+
+    $(document).ready(function() {
+        const selectElement = $("#room-select");
+
+        selectElement.on("change", function() {
+            const roomId = $(this).val();
+
+            $.ajax({
+                url: `/<?= $meta["url"] ?>/findRoom/${roomId}`,
+                success: function(data) {
+                    hargaKamar = data.room.harga_kamar;
+                    $("#label-harga").text(rupiah(hargaKamar));
+                    hitungTotal();
+                }
+            });
+        });
+    });
+
+
+    $(document).ready(function() {
+        var input = $("#inputDiskon");
+        var label = $("#labelDiskon");
+        input.on("change", function() {
+            diskon = input.val();
+            label.text(`${diskon} %`);
+            hitungTotal();
+        });
+    });
+
+
+    function hitungTotal() {
+        var hargaPerMalam = hargaKamar;
+
+        if (diskon > 0) {
+            var diskonPersen = diskon / 100;
+            var diskonNominal = hargaPerMalam * diskonPersen;
+
+            hargaPerMalam -= diskonNominal;
+        }
+        total = hargaPerMalam * hitungDurasi();
+        console.log(total);
+
+        $("#labelTotal").text(rupiah(total));
+    }
+
+    function hitungDurasi() {
+        var tanggalMulai = document.getElementById("tanggalCheckin").value;
+        var tanggalAkhir = document.getElementById("tanggalCheckout").value;
+
+        var date1 = new Date(tanggalMulai);
+        var date2 = new Date(tanggalAkhir);
+
+        var diff = date2 - date1;
+        if (diff == 0) {
+            diff = 1;
+        }
+        return diff;
+    }
 </script>
 
 <?= $this->endSection(); ?>

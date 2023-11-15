@@ -3,11 +3,15 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\AkunModel;
+use App\Models\BookingModel;
+use App\Models\HargakamarModel;
 use App\Models\PemasukanModel;
 use App\Models\TamuModel;
+use CodeIgniter\API\ResponseTrait;
+use DateTime;
 
 class Pemasukan extends BaseController {
+    use ResponseTrait;
     var $meta = [
         "url" => 'pemasukan',
         "title" => "Data Transaksi Pemasukan",
@@ -19,15 +23,17 @@ class Pemasukan extends BaseController {
     public function __construct() {
         $this->pemasukanModel = new PemasukanModel();
         $this->tamuModel = new TamuModel();
+        $this->roomModel = new HargakamarModel();
+        $this->bookingModel = new BookingModel();
     }
 
     public function index() {
         $data = [
             "title" => "Data Pemasukan",
             "dataPemasukan" => $this->pemasukanModel->findAll(),
-            "meta"     => $this->meta
+            "meta"     => $this->meta,
+            "room"      => $this->roomModel->findAll(),
         ];
-
         return view("/pemasukan/index", $data);
     }
 
@@ -36,6 +42,9 @@ class Pemasukan extends BaseController {
             "title" => "Tambah Data pemasukan Baru",
             "meta"  => $this->meta,
             "dataTamu" => $this->tamuModel->findAll(),
+            "dataRoom"  => $this->roomModel->findAll(),
+            "dataBooking" => $this->bookingModel->findAll(),
+            "dataBookingJson" => json_encode($this->bookingModel->findAll())
         ];
         return view("/pemasukan/tambah", $data);
     }
@@ -43,19 +52,20 @@ class Pemasukan extends BaseController {
     public function store() {
         $data = $this->request->getPost();
 
-        $idTamuBaru = "";
+        $diskon = $data["diskon"];
+        $idKamar = $data["room"];
 
-        if ($data["jenis_tamu"] == "tamuBaru") {
-            $tamu = [
-                "nama_tamu" => $this->request->getPost("nama_tamu"),
-                "alamat_tamu" => $this->request->getPost("alamat_tamu"),
-                "telepon_tamu" => $this->request->getPost("telepon_tamu"),
-            ];
+        $hargaKamar = $this->roomModel->select("harga_kamar")->first($idKamar)["harga_kamar"];
+        // dd($hargaKamar); s
 
-            $this->tamuModel->save($tamu);
-            $idTamuBaru = $this->tamuModel->insertID();
-            $data["id_tamu"] = $idTamuBaru;
-        }
+        $durasi = $this->hitungDurasi($data["check_in"], $data["check_out"]);
+
+        // dd($durasi);
+        $total = $this->hitungTotal($diskon, $hargaKamar, $durasi);
+        // dd($total);
+
+        $data["jumlah"] = $total;
+
 
         $this->pemasukanModel->save($data);
 
@@ -104,5 +114,43 @@ class Pemasukan extends BaseController {
         ];
 
         return view("/pemasukan/index", $data);
+    }
+
+
+    function findRoom($id) {
+        return $this->respond([
+            "room" => $this->roomModel->find($id)
+        ]);
+    }
+
+
+    // private function
+
+    private function hitungTotal(float $diskon, float $hargaKamar, float $durasi) {
+        $hargaPerMalam = $hargaKamar;
+
+        if ($diskon > 0) {
+            $diskonPersen = $diskon / 100;
+            $diskonNominal = $hargaPerMalam * $diskonPersen;
+            $hargaPerMalam -= $diskonNominal;
+        }
+
+        return $hargaPerMalam * $durasi;
+    }
+
+
+
+    private function hitungDurasi(string $startDate, string $endDate) {
+        $date1 = new DateTime($startDate);
+        $date2 = new DateTime($endDate);
+
+        $durasi = 0;
+
+        $diff = $date2->diff($date1);
+        if ($diff->days == 0) {
+            $durasi = $diff->days = 1;
+        }
+
+        return $durasi = 1;
     }
 }
