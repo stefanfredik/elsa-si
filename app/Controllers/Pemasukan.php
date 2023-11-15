@@ -38,7 +38,7 @@ class Pemasukan extends BaseController {
     }
 
     public function tambah() {
-        $lastId = $this->pemasukanModel->select("id")->orderBy("id", "DESC")->first()["id"] + 1;
+        $lastId = ($this->pemasukanModel->select("id")->orderBy("id", "DESC")->first() != null) ? ($this->pemasukanModel->select("id")->orderBy("id", "DESC")->first()["id"])  + 1  : 1;
 
         $data = [
             "title" => "Tambah Data pemasukan Baru",
