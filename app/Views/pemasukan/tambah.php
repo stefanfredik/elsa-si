@@ -117,7 +117,7 @@
                                     <div class="col-lg-4">
                                         <label for="exampleFormControlInput1">Diskon</label>
                                     </div>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg">
                                         <div class="input-group mb-3">
                                             <input name="diskon" id="inputDiskon" type="text" class="form-control" aria-label="Diskon">
                                             <span class="input-group-text">%</span>
