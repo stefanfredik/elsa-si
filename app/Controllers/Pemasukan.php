@@ -65,6 +65,7 @@ class Pemasukan extends BaseController {
         // dd($total);
 
         $data["jumlah"] = $total;
+        $data["id_transaksi"] = $this->pemasukanModel->insertId();
 
 
         $this->pemasukanModel->save($data);
