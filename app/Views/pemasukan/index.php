@@ -47,7 +47,7 @@
                         foreach ($dataPemasukan as $dt) : ?>
                             <tr>
                                 <td><?= $no++ ?></td>
-                                <td><?= "I-" . str_pad($dt["id"], 4, '0', STR_PAD_LEFT) ?></td>
+                                <td><?= "I-" . str_pad($dt["id"], 3, '0', STR_PAD_LEFT) ?></td>
                                 <td><?= $dt["tanggal_transaksi"] ?></td>
                                 <td><?= $dt["nama_tamu"] ?></td>
                                 <td><?= $dt["check_in"] ?></td>

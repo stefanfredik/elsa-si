@@ -42,7 +42,7 @@
                         foreach ($dataPengeluaran as $dt) : ?>
                             <tr>
                                 <td><?= $no++ ?></td>
-                                <td><?= "O-" . str_pad($dt["id"], 4, '0', STR_PAD_LEFT) ?></td>
+                                <td><?= "O-" . str_pad($dt["id"], 3, '0', STR_PAD_LEFT) ?></td>
                                 <td><?= $dt["tanggal_transaksi"] ?></td>
                                 <td><?= $dt["keterangan"] ?></td>
                                 <td><?= rupiah($dt["total"]) ?></td>
